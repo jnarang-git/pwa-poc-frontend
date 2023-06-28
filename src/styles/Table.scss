@@ -1,0 +1,271 @@
+@import "./var.scss";
+@import "./mix.scss";
+
+.schedulesContainer {
+  @include flexbox($justify: space-between, $align: center);
+  .schedules {
+    @include fontStyle($fontWeight: bolder, $fontSize: 1.5rem);
+    background: $primary_dark_4;
+    line-height: 2rem;
+    letter-spacing: 0.013rem;
+    margin: 1rem 0;
+    color: $primary_dark_1;
+  }
+  .template {
+    @include fontStyle($fontWeight: 600);
+    padding: 0.688rem 1rem;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    line-height: 1.125;
+    align-items: center;
+    .templateWrapper {
+      cursor: pointer;
+      .templateIcon {
+        margin-bottom: -0.2rem;
+      }
+      .templateHeading {
+        color: $primary_dark_1;
+        margin-left: 0.3rem;
+        margin-right: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06rem;
+      }
+    }
+  }
+  .addScheduleButton {
+    padding-left: 1rem;
+    padding-top: 0.7rem;
+    width: 8.33rem;
+    align-items: center;
+    height: 2.625rem;
+    margin-top: -0.2rem;
+    background: $primary_hue_blue_1;
+    border-radius: 3.125rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.125rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $white;
+  }
+}
+
+.homeContainer {
+  .container {
+    background: $white;
+    border-radius: 14px;
+    border-color: $white;
+    .wrapHeading {
+      @include flexbox($justify: space-between);
+      margin: 1rem 0;
+      .scheduleSummaryHeading {
+        @include fontStyle($fontSize: 1.25rem, $fontWeight: 600);
+        line-height: 1.625rem;
+        letter-spacing: 0.013rem;
+        color: $primary_dark_1;
+      }
+      .icons {
+        @include flexbox;
+        margin-right: 0.6rem;
+        span {
+          cursor: pointer;
+        }
+        span:first-child {
+          margin-right: 0.5rem !important;
+        }
+        .editSchedulesButton {
+          @include fontStyle;
+          letter-spacing: 1px;
+          border-radius: 3rem;
+          margin-left: 50rem;
+          margin-right: 1rem;
+          color: $primary_hue_blue_1;
+        }
+      }
+    }
+  }
+}
+
+.availableStatusColor {
+  color: $status_green;
+}
+
+.enrolledStatusColor {
+  color: $status_yellow;
+}
+
+.appliedFiltersContainer {
+  @include flexbox();
+  margin: 0.625rem 0;
+}
+
+.tableContainer {
+  min-height: 78vh;
+  @include flexbox(
+    $flexDirection: column,
+    $justify: space-between,
+    $align: center
+  );
+  div:first-child {
+    box-shadow: none;
+  }
+  table,
+  tr,
+  td,
+  th {
+    border: none;
+    @include fontStyle;
+    color: $primary_dark_1;
+    letter-spacing: 0.1px;
+  }
+  tr {
+    td:first-child,
+    th:first-child {
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+    td:last-child,
+    th:last-child {
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  }
+
+  thead {
+    th {
+      color: $primary_dark_2;
+    }
+  }
+  .table {
+    @include fontStyle;
+    width: 100%;
+
+    .tableHead {
+      font-weight: normal;
+      background: $primary_dark_4;
+      border: none;
+      border-radius: 0.5rem;
+      .showTip {
+        margin-left: 0.5rem;
+      }
+      .hideTip {
+        display: none;
+      }
+      .headerDesc,
+      .headerAsc {
+        color: $primary_dark_2;
+        font-weight: normal;
+        img {
+          margin-left: 0.3rem !important;
+        }
+      }
+      .headerAsc {
+        img[alt="sort-icon"] {
+          -webkit-transform: rotate(
+            180deg
+          ); /* Chrome and other webkit browsers */
+          -moz-transform: rotate(180deg); /* FF */
+          -o-transform: rotate(180deg); /* Opera */
+          -ms-transform: rotate(180deg); /* IE9 */
+          transform: rotate(180deg);
+        }
+      }
+      .tableHeadCell {
+        padding: 0.25rem 1rem;
+      }
+    }
+    .notFound {
+      color: $primary_dark_2;
+      text-align: center;
+      height: 60vh;
+    }
+    .tableBody {
+      letter-spacing: 0.1px;
+      color: $primary_dark_1;
+      .statusApproved,
+      .statusAvailable,
+      .statusRejected,
+      .statusRequested {
+        display: flex;
+      }
+      .hide {
+        display: none;
+      }
+      .statusApproved,
+      .statusAvailable {
+        color: $status_green;
+      }
+      .statusRejected {
+        color: $status_red;
+      }
+      .statusRequested {
+        color: $status_yellow;
+      }
+      .NA {
+        color: $primary_dark_3;
+      }
+      .blue {
+        color: #2290fe;
+      }
+      .hoverItemsShow {
+        width: 9.375rem;
+        color: $primary_dark_1;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        background-color: $white;
+        box-shadow: 0px 6px 24px rgba(58, 65, 104, 0.08);
+        position: absolute;
+        margin-left: -5%;
+        .slotHoverFlex {
+          padding: 0.5rem;
+          cursor: pointer;
+          @include flexbox;
+          &:hover {
+            background-color: $primary_dark_4;
+            border-radius: 0.25rem;
+          }
+          .optionsText {
+            margin-left: 0.3rem;
+          }
+        }
+      }
+      .hoverItemsHide {
+        display: none;
+      }
+    }
+  }
+
+  .tablePagination {
+    width: 100%;
+    background: $primary_dark_4;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    p,
+    span {
+      @include fontStyle;
+      color: $primary_dark_2;
+    }
+    div {
+      @include fontStyle;
+    }
+  }
+}
+
+.tableHead {
+  font-weight: normal;
+  background: $primary_dark_4;
+  border: none;
+  border-radius: 0.5rem;
+  .showTip {
+    margin-left: 0.5rem;
+  }
+}
+
+.camera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    flex-direction: column;
+}

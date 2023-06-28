@@ -1,0 +1,41 @@
+@mixin flexbox(
+  $justify: flex-start,
+  $align: stretch,
+  $flexDirection: row,
+  $wrap: nowrap,
+  $flexBasis: auto
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $flexDirection;
+  flex-wrap: $wrap;
+  flex-basis: $flexBasis;
+}
+
+@mixin fontStyle(
+  $fontFamily: Poppins,
+  $fontStyle: normal,
+  $fontWeight: 500,
+  $fontSize: 0.75rem // 12px
+) {
+  font-family: $fontFamily !important;
+  font-style: $fontStyle !important;
+  font-weight: $fontWeight !important;
+  font-size: $fontSize !important;
+}
+
+@mixin editButtonStyle {
+  @include fontStyle($fontSize: 0.688rem, $fontWeight: 500);
+  letter-spacing: 1px;
+  border-radius: 3rem;
+  width: auto;
+}
+
+@mixin rotateBy180deg {
+  -webkit-transform: rotate(180deg); /* Chrome and other webkit browsers */
+  -moz-transform: rotate(180deg); /* FF */
+  -o-transform: rotate(180deg); /* Opera */
+  -ms-transform: rotate(180deg); /* IE9 */
+  transform: rotate(180deg);
+}
