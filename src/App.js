@@ -62,8 +62,11 @@ function App() {
   return (
     <div
       className="App"
-      style={{ width: "100%", height: "100%", background: "#020278" }}
+      style={{ width: "100%", height: "100vh", background: "#020278" }}
     >
+      <div className="title">
+        <h1>Task Management</h1>
+      </div>
       <div className="result">
         {/* <canvas ref={photoRef}></canvas> */}
         <Table />
